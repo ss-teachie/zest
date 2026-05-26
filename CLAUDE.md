@@ -63,6 +63,7 @@ The `/skills/` folder contains specialized guides for specific tasks. Load the r
 | `skills/brand-and-style-guide.md` | Writing any marketing copy — landing pages, ads, emails, product descriptions |
 | `skills/kb-persona.md` | Writing copy targeted at Knowledge Business personas |
 | `skills/pd-persona.md` | Writing copy targeted at Program Distributor personas |
+| `skills/humanizer.md` | Post-processing any copy to strip AI writing patterns and make it sound human |
 
 ---
 

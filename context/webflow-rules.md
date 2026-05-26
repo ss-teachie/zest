@@ -94,3 +94,15 @@ When using the Webflow MCP:
 - If something is ambiguous (which component to use, which slot to place in), ask — don't guess
 - If the Navigator is needed to place a component, say so and describe what to select
 - Never chain multiple irreversible actions together in one go
+
+---
+
+## Class and Style Safety Rules
+
+Before creating any new class or style:
+
+1. **Check for existing classes first** — use `style_tool → query_styles` to search for the class name before creating it. Reuse always beats creating new.
+2. **Never modify a base class when a combo class achieves the same result** — base class changes are global and affect every element using that class across the entire site. If you need a variant, add a combo class (`is-[variant]`) instead.
+3. **Never use inline styles** — all styles must be applied via Webflow classes, not inline CSS.
+
+If a class or pattern doesn't exist and you genuinely need something new, stop and flag it rather than improvising.
