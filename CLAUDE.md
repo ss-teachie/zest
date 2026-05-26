@@ -36,6 +36,9 @@ Teachable has a full component library in Webflow. Always use components from th
 ### 5. Voice and Tone
 All copy must match the Teachable brand voice. See `context/voice.md`. When writing or editing copy, never default to generic SaaS language ("streamline," "leverage," "empower," "seamlessly"). Read the voice guide before writing anything.
 
+### 6. Know Your Audience
+Teachable's primary 2026 acquisition targets are **Knowledge Business (KB)** and **Program Distributor (PD)** personas. Copy should be tuned to the right persona for the page. See `context/personas.md` for full persona definitions and the Persona × Niche messaging matrix.
+
 ---
 
 ## Context Files
@@ -44,8 +47,22 @@ All copy must match the Teachable brand voice. See `context/voice.md`. When writ
 |------|---------------|
 | `context/webflow-rules.md` | Webflow-specific workflow, template rules, CMS, publishing |
 | `context/components.md` | Full Teachable component library — use these, not custom builds |
-| `context/voice.md` | Brand voice, tone, writing rules, what not to say |
+| `context/voice.md` | Brand voice, tone, writing rules, positioning statement, what not to say |
+| `context/personas.md` | ICP personas (KB, PD, Service Amplifier, Audience Builder), niche targeting, Persona × Niche matrix |
 | `guidelines.md` | Design tokens — colors, typography, spacing, buttons, patterns |
+
+---
+
+## Skills
+
+The `/skills/` folder contains specialized guides for specific tasks. Load the relevant skill when you're doing that type of work.
+
+| Skill File | When to Use |
+|-----------|-------------|
+| `skills/webflow-niche-page-editor.md` | Adapting a Webflow page for a new creator niche (yoga, coding, languages, etc.) |
+| `skills/brand-and-style-guide.md` | Writing any marketing copy — landing pages, ads, emails, product descriptions |
+| `skills/kb-persona.md` | Writing copy targeted at Knowledge Business personas |
+| `skills/pd-persona.md` | Writing copy targeted at Program Distributor personas |
 
 ---
 
