@@ -4,6 +4,7 @@ This repository is the source of truth for Teachable's design system. These rule
 
 **Load context on demand — don't read everything upfront:**
 - `context/webflow-rules.md` + `guidelines.md` — read at the start of every Webflow session
+- `context/framework-principles.md` — load when creating, modifying, or auditing any classes or elements
 - `context/voice.md` — load when writing or reviewing copy
 - `context/personas.md` — load when targeting a specific audience
 - `context/components.md` — load when building or auditing pages
@@ -56,6 +57,7 @@ Teachable's primary 2026 acquisition targets are **Knowledge Business (KB)** and
 | `guidelines.md` | Design tokens — colors, typography, spacing, buttons, patterns | Every Webflow session |
 | `context/voice.md` | Brand voice, tone, writing rules, positioning statement, what not to say | Writing or reviewing copy |
 | `context/personas.md` | ICP personas (KB, PD, Service Amplifier, Audience Builder), niche targeting, Persona × Niche matrix | Audience-specific copy |
+| `context/framework-principles.md` | Client-First class naming, page structure, typography, spacing — Finsweet's conventions | Creating/modifying/auditing classes or elements |
 | `context/components.md` | Full Teachable component library — use these, not custom builds | Building or auditing pages |
 
 ---
