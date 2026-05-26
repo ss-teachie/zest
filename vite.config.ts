@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'MakeAble',
+      name: 'Zest',
       fileName: 'index',
       formats: ['es'],
     },

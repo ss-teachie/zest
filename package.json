@@ -15,7 +15,8 @@
   },
   "files": [
     "dist",
-    "guidelines.md"
+    "guidelines.md",
+    "FIGMA.md"
   ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly --declaration --outDir dist",
