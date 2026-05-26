@@ -1,6 +1,13 @@
 # Zest — Teachable Design System Context
 
-This repository is the source of truth for Teachable's design system. Read all files in `/context/` before responding to any prompt. These rules apply to every session — Webflow MCP, Figma Make, or general design tasks.
+This repository is the source of truth for Teachable's design system. These rules apply to every session — Webflow MCP, Figma Make, or general design tasks.
+
+**Load context on demand — don't read everything upfront:**
+- `context/webflow-rules.md` + `guidelines.md` — read at the start of every Webflow session
+- `context/voice.md` — load when writing or reviewing copy
+- `context/personas.md` — load when targeting a specific audience
+- `context/components.md` — load when building or auditing pages
+- Skills — load only when the task matches (see table below)
 
 ---
 
@@ -43,19 +50,19 @@ Teachable's primary 2026 acquisition targets are **Knowledge Business (KB)** and
 
 ## Context Files
 
-| File | What It Covers |
-|------|---------------|
-| `context/webflow-rules.md` | Webflow-specific workflow, template rules, CMS, publishing |
-| `context/components.md` | Full Teachable component library — use these, not custom builds |
-| `context/voice.md` | Brand voice, tone, writing rules, positioning statement, what not to say |
-| `context/personas.md` | ICP personas (KB, PD, Service Amplifier, Audience Builder), niche targeting, Persona × Niche matrix |
-| `guidelines.md` | Design tokens — colors, typography, spacing, buttons, patterns |
+| File | What It Covers | When to Load |
+|------|---------------|-------------|
+| `context/webflow-rules.md` | Webflow-specific workflow, template rules, CMS, publishing | Every Webflow session |
+| `guidelines.md` | Design tokens — colors, typography, spacing, buttons, patterns | Every Webflow session |
+| `context/voice.md` | Brand voice, tone, writing rules, positioning statement, what not to say | Writing or reviewing copy |
+| `context/personas.md` | ICP personas (KB, PD, Service Amplifier, Audience Builder), niche targeting, Persona × Niche matrix | Audience-specific copy |
+| `context/components.md` | Full Teachable component library — use these, not custom builds | Building or auditing pages |
 
 ---
 
 ## Skills
 
-The `/skills/` folder contains specialized guides for specific tasks. Load the relevant skill when you're doing that type of work.
+The `/skills/` folder contains specialized guides for specific tasks. Load the relevant skill only when the task matches — don't load all skills upfront.
 
 | Skill File | When to Use |
 |-----------|-------------|
@@ -64,6 +71,18 @@ The `/skills/` folder contains specialized guides for specific tasks. Load the r
 | `skills/kb-persona.md` | Writing copy targeted at Knowledge Business personas |
 | `skills/pd-persona.md` | Writing copy targeted at Program Distributor personas |
 | `skills/humanizer.md` | Post-processing any copy to strip AI writing patterns and make it sound human |
+
+### Additional Webflow skills (fetch as needed)
+
+The [`webflow/webflow-skills`](https://github.com/webflow/webflow-skills/tree/main/plugins/webflow-skills/skills) repo has task-specific skills worth grabbing before relevant work. Read the SKILL.md directly from GitHub rather than adding them permanently to this repo.
+
+| Skill | What it does |
+|-------|-------------|
+| `asset-audit` | Find images missing alt text and non-SEO-friendly filenames |
+| `link-checker` | Find broken or HTTP links across all pages and CMS content |
+| `bulk-cms-update` | Batch create/update CMS items with validation and diff preview |
+| `accessibility-audit` | WCAG 2.1 check on pages — buttons, forms, links, focus, headings |
+| `safe-publish` | Preview everything that's changed since last publish before going live |
 
 ---
 
