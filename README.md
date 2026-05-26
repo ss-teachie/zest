@@ -1,71 +1,91 @@
-# make-able
+# zest — Teachable Design System
 
-Design system tokens for [Figma Make](https://www.figma.com/make/). Sourced directly from the teachable.com Webflow variable system — colors, typography, spacing, border radii, and layout tokens — so prototypes generated in Figma Make look native to the Teachable marketing site.
+Design system tokens and context files for the Teachable marketing site. Two consumers:
 
-## Installation
+- **Figma Make** — install as a package, use tokens and component patterns to generate native-looking Teachable UI
+- **Webflow MCP / Claude Code** — `CLAUDE.md` is the entry point; context files and skills teach Claude the brand voice, component library, Client-First conventions, and Webflow workflow rules
+
+---
+
+## Figma Make
+
+### Installation
 
 ```bash
-npm install make-able
+npm install github:ss-teachie/zest
 ```
 
-## Usage in Figma Make
+Or add to `package.json`:
+```json
+"@ss-teachie/zest": "github:ss-teachie/zest"
+```
 
-Ask Figma Make to install the package:
-> "Install make-able and use it for all styling"
-
-Or add it to your `package.json` manually, then prompt:
-> "Use the make-able design system. Import tokens.css and reference CSS custom properties for all colors, fonts, and spacing."
-
-## Usage in code
+### Usage
 
 ```tsx
-// Import CSS tokens (required)
-import 'make-able/tokens.css'
-
-// Optional: JS theme object
-import { theme, colors, typography, spacing, sizes } from 'make-able'
+import '@ss-teachie/zest/tokens.css'
+import { theme } from '@ss-teachie/zest'
 ```
 
-## What's included
+See `FIGMA.md` for the full Figma Make guide and component patterns.
 
-- **CSS custom properties** — all 6 Webflow variable collections (Base, Theme, Typography, Layout, Sizes, Apps) translated 1:1
-- **Responsive breakpoints** — tablet, mobile landscape, and mobile portrait overrides matching Webflow's breakpoint system
-- **Base element styles** — `body`, `h1`–`h6`, focus, and `::selection` defaults
-- **JS theme object** — structured TypeScript export of all token values
-- **Figma Make guidelines** — `guidelines.md` teaching the AI how to apply tokens correctly
+---
+
+## Webflow MCP / Claude Code
+
+`CLAUDE.md` is automatically read by Claude Code at session start. It loads the right context files and skills based on the task.
+
+See `CLAUDE.md` for the full guide.
+
+---
+
+## What's Included
+
+| File / Folder | Purpose |
+|---------------|---------|
+| `CLAUDE.md` | Claude Code entry point — Webflow MCP sessions |
+| `FIGMA.md` | Claude entry point — Figma Make sessions |
+| `guidelines.md` | Design tokens reference — colors, typography, spacing, borders |
+| `context/webflow-rules.md` | Webflow workflow rules, template constraints, publishing |
+| `context/framework-principles.md` | Client-First (Finsweet) class naming, page structure, interactions |
+| `context/components.md` | Full Teachable Webflow component library |
+| `context/voice.md` | Brand voice, tone, writing rules |
+| `context/personas.md` | ICP personas and Persona × Niche messaging matrix |
+| `skills/` | Task-specific skill guides for Claude |
+| `dist/` | Compiled CSS + JS tokens for npm install |
+| `src/` | Token source files |
+
+---
 
 ## Fonts
 
 | Original (Webflow) | Substitute (Google Fonts) | Role |
 |---|---|---|
-| Ivy Presto Headline | Playfair Display | H1–H3, buttons |
-| Peridot PE | DM Sans | Body, H4–H6, UI |
+| IvyPresto Headline | Merriweather | H1–H3, Subtitle A |
+| Peridot PE Variable | DM Sans | Body, H4–H6, Eyebrow, UI |
 
-Fonts are loaded automatically via `@import` in `tokens.css`.
+Fonts load automatically via `@import` in `tokens.css`.
 
-## Key tokens
+---
+
+## Key Tokens
 
 ```css
-/* Brand */
---brand--yellow: #e6ff32          /* primary CTA color */
---enterprise-colors--dark-olive: #1e2605   /* dark hero backgrounds */
---enterprise-colors--dark-navy: #182a44    /* enterprise/B2B sections */
---cool-beige: #f6f2ee             /* warm alternate backgrounds */
+--brand--lemon: #e6ff32              /* primary CTA — appears in every standalone piece */
+--brand--navy: #112846               /* enterprise/B2B sections */
+--enterprise-colors--dark-olive: #1c2600  /* dark hero backgrounds */
+--cool-beige: #f6f2ee                /* warm alternate backgrounds */
 
-/* Fonts */
---font-family--heading            /* Playfair Display */
---font-family--body               /* DM Sans */
+--font-family--heading               /* Merriweather */
+--font-family--body                  /* DM Sans */
 
-/* Section padding */
 --_layout---section-padding--medium: 5rem
---_layout---section-padding--large: 8rem
-
-/* Containers */
+--_layout---section-padding--large:  8rem
 --_sizes---container--large: 86rem
---_sizes---border-radius--full: 9999px    /* pill buttons */
+--_sizes---border-radius--full: 9999px   /* pill buttons */
 ```
 
-See `guidelines.md` for the full Figma Make usage guide.
+---
 
 ## Source
 

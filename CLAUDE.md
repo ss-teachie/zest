@@ -1,6 +1,6 @@
 # Zest — Teachable Design System Context
 
-This repository is the source of truth for Teachable's design system. These rules apply to every session — Webflow MCP, Figma Make, or general design tasks.
+This is the Claude Code entry point for **Webflow MCP sessions**. For Figma Make sessions, see `FIGMA.md` instead.
 
 **Load context on demand — don't read everything upfront:**
 - `context/webflow-rules.md` + `guidelines.md` — read at the start of every Webflow session
