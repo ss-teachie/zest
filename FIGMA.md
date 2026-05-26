@@ -6,20 +6,15 @@ This is the entry point for Figma Make sessions. Use this file alongside `guidel
 
 ## Setup
 
-Ask Figma Make to install the package:
-> "Install @ss-teachie/zest from GitHub and use it for all styling"
-
-Or add it manually to `package.json`:
+The package is published on npm as `@sarahable/zest`. Add it to your `package.json`:
 ```json
-"@ss-teachie/zest": "github:ss-teachie/zest"
+"@sarahable/zest": "^0.1.0"
 ```
 
-Then prompt:
-> "Use the @ss-teachie/zest design system. Import tokens.css and reference CSS custom properties for all colors, fonts, and spacing."
-
+Then import in your entry file:
 ```tsx
-import '@ss-teachie/zest/tokens.css'
-import { theme } from '@ss-teachie/zest'
+import '@sarahable/zest/tokens.css'
+import { theme } from '@sarahable/zest'
 ```
 
 ---
