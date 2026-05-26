@@ -1,6 +1,6 @@
 # make-able
 
-Teachable design system tokens for [Figma Make](https://www.figma.com/make/). Sourced directly from the teachable.com Webflow variable system — colors, typography, spacing, border radii, and layout tokens — so prototypes generated in Figma Make look native to the Teachable marketing site.
+Design system tokens for [Figma Make](https://www.figma.com/make/). Sourced directly from the teachable.com Webflow variable system — colors, typography, spacing, border radii, and layout tokens — so prototypes generated in Figma Make look native to the Teachable marketing site.
 
 ## Installation
 
