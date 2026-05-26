@@ -1,0 +1,488 @@
+/*
+ * make-able — Teachable Design Tokens
+ * Sourced directly from teachable.com Webflow variable collections:
+ * Base, Theme, Typography, Layout, Sizes, Apps
+ *
+ * Google Font substitutions:
+ *   Ivy Presto Headline → Playfair Display (heading)
+ *   Peridot PE          → DM Sans (body)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=DM+Sans:ital,opsz,wght@0,9..40,100..900;1,9..40,100..900&display=swap');
+/* Font substitutions (Phase 1 re-Brand Refinements):
+ *   IvyPresto Headline → Merriweather  (headlines, subtitle A — 100–110% line-height)
+ *   Peridot PE Variable → DM Sans      (eyebrow, body, subtitle B, text — 135% line-height)
+ * Note: DM Serif was considered but dropped — only one weight available. */
+
+/* ============================================================
+   BASE — Primitive color palette
+   Phase 1 re-Brand Refinements applied:
+   - Dropped "Yellow" (gold) — clashes with palette
+   - Light Lemon + Navy promoted to primary tier
+   - Charcoal, Warm Gray, Cool Beige formalized as neutrals
+   - Bordeaux darkened; Cabernet added as secondary
+   - Olive added as secondary green
+   - Light Orange → Peach (more vibrant)
+   - Violet added as tertiary
+   ============================================================ */
+:root {
+  /* ── PRIMARY ─────────────────────────────────────────────── */
+  --brand--lemon: #e6ff32;           /* "Teachable Lemon" — appears in every standalone comm. */
+  --brand--light-lemon: #f8ffc6;     /* primary softer accent — B2B palette confirmed */
+  --brand--navy: #112846;            /* dark primary / enterprise — B2B palette confirmed */
+
+  /* ── NEUTRALS ────────────────────────────────────────────── */
+  --cool-beige: #f6f2ee;             /* warm neutral background — B2B palette confirmed */
+  --brand--charcoal: #4e4e4e;        /* dark neutral — B2B palette confirmed */
+  --brand--warm-gray: #d1ceb3;       /* warm greige — B2B palette confirmed (PMS Warm Gray 2 C) */
+
+  /* Warm grey tonal scale — Figma "Marketing Website" variables */
+  --brand--warm-gray-50: #a7a5a2;    /* mid warm neutral */
+  --brand--warm-gray-60: #7d7c7a;    /* mid-dark warm neutral */
+  --brand--warm-gray-70: #545251;    /* dark warm neutral */
+  --brand--warm-gray-80: #2a2929;    /* near-black warm neutral */
+
+  /* Lemon tint scale — Figma "Teachable Primary" palette (tints mix toward white) */
+  --brand--lemon-tint-40: #f0ffad;   /* lemon + 40% white */
+  --brand--lemon-tint-60: #f5ffca;   /* lemon + 60% white */
+  --brand--lemon-tint-80: #f8ffe4;   /* lemon + 80% white (≈ light lemon) */
+  /* Lemon shade scale (shades mix toward black) */
+  --brand--lemon-shade-20: #b8cc28;  /* lemon − 20% (darker) */
+  --brand--lemon-shade-40: #8a9920;  /* lemon − 40% */
+  --brand--lemon-shade-60: #5c6615;  /* lemon − 60% */
+  --brand--lemon-shade-80: #2e330b;  /* lemon − 80% */
+
+  /* ── SECONDARY ───────────────────────────────────────────── */
+  --brand--bordeaux: #651a1a;        /* darker bordeaux — TODO: confirm exact hex */
+  --brand--cabernet: #7f2a23;        /* deep red (was --brand--red-dark) — TODO: confirm exact hex */
+  --brand--olive: #466301;           /* olive green — B2B palette confirmed (PMS 7757 C) */
+
+  /* ── TERTIARY ────────────────────────────────────────────── */
+  --brand--turquoise: #b6f2e8;       /* light turquoise — TODO: confirm exact hex */
+  --brand--peach: #f5a87a;           /* replaces light orange — TODO: confirm exact hex */
+  --brand--violet: #c9b8f0;          /* new violet — TODO: confirm exact hex */
+
+  /* ── LEGACY / KEPT FOR COMPATIBILITY ─────────────────────── */
+  --brand--blue-dark: #1c4774;       /* verify if still needed post-rebrand */
+  --brand--yellow-light: #f8ffc6;    /* alias → same value as --brand--light-lemon */
+  --brand--blue-light: #b6f2e8;      /* alias → same value as --brand--turquoise */
+  --brand--grey-mid: #bfbfbf;
+  --brand--grey-light: #f0f0f0;
+
+  /* Enterprise */
+  --enterprise-colors--dark-navy: #112846;  /* B2B palette confirmed — was #182a44 */
+  --enterprise-colors--dark-olive: #1c2600; /* B2B palette confirmed — was #1e2605 */
+
+  /* Neutrals */
+  --neutral--transparent: hsla(0, 0%, 0%, 0);
+  --neutral--black: #000;
+  --neutral--white: #fff;
+  --neutral--neutral-lightest: #eee;
+  --neutral--neutral-lighter: #ccc;
+  --neutral--neutral-light: #aaa;
+  --neutral--neutral: #666;
+  --neutral--neutral-dark: #444;
+  --neutral--neutral-darker: #222;
+  --neutral--neutral-darkest: #111;
+
+  /* Font Weights */
+  --font-weight--thin: 100;
+  --font-weight--xlight: 200;
+  --font-weight--light: 300;
+  --font-weight--normal: 400;
+  --font-weight--medium: 500;
+  --font-weight--semi-bold: 600;
+  --font-weight--bold: 700;
+  --font-weight--xbold: 800;
+  --font-weight--black: 900;
+
+  /* Font Families — Google Font substitutes */
+  --font-family--heading: 'Merriweather', Georgia, serif;
+  --font-family--body: 'DM Sans', system-ui, sans-serif;
+
+  /* Focus */
+  --focus--width: 0.125rem;
+  --focus--offset: 0.125rem;
+
+  /* ============================================================
+     THEME — Semantic color aliases (light mode default)
+     ============================================================ */
+  --_theme---background--primary: var(--neutral--black);
+  --_theme---background--secondary: var(--neutral--white);
+  --_theme---background--tertiary: var(--brand--grey-mid);
+  --_theme---background--success: var(--brand--orange-light);
+  --_theme---background--warning: var(--brand--red-dark);
+  --_theme---background--error: var(--brand--grey-light);
+
+  --_theme---border-color--primary: var(--neutral--black);
+  --_theme---border-color--secondary: var(--neutral--white);
+
+  --_theme---button--text-light: var(--neutral--white);
+  --_theme---button--text-dark: var(--neutral--black);
+  --_theme---button--background-light: white;
+  --_theme---button--background-dark: var(--neutral--black);
+
+  --_theme---link-color--primary: var(--neutral--black);
+  --_theme---link-color--secondary: var(--neutral--black);
+
+  --_theme---text-color--text-light: var(--neutral--white);
+  --_theme---text-color--text-dark: var(--neutral--black);
+  --_theme---text-color--success: var(--brand--blue-light);
+  --_theme---text-color--warning: var(--neutral--white);
+  --_theme---text-color--error: var(--brand--red-dark);
+
+  --_theme---system--success-background: var(--brand--orange-light);
+  --_theme---system--success-text: var(--brand--blue-light);
+  --_theme---system--warning-background: var(--brand--red-dark);
+  --_theme---system--warning-text: var(--neutral--white);
+  --_theme---system--error-background: var(--brand--grey-light);
+  --_theme---system--error-text: var(--brand--red-dark);
+  --_theme---system--focus-state: var(--brand--grey-mid);
+  --_theme---system--selection-text: var(--neutral--white);
+  --_theme---system--selection-background: var(--brand--gold);
+
+  /* ============================================================
+     TYPOGRAPHY — Desktop (base) scale
+     ============================================================ */
+
+  /* Heading sizes */
+  --_typography---h1--h1-font-size: 5rem;
+  --_typography---h1--h1-font-weight: var(--font-weight--normal);
+  --_typography---h1--h1-line-height: 1;
+  --_typography---h1--h1-letter-spacing: 0px;
+
+  --_typography---h2--h2-font-size: 4rem;
+  --_typography---h2--h2-font-weight: var(--font-weight--normal);
+  --_typography---h2--h2-line-height: 1.1;
+  --_typography---h2--h2-letter-spacing: 0px;
+
+  --_typography---h3--h3-font-size: 3rem;
+  --_typography---h3--h3-font-weight: var(--font-weight--normal);
+  --_typography---h3--h3-line-height: 1.1;
+  --_typography---h3--h3-letter-spacing: 0px;
+
+  --_typography---h4--h4-font-size: 1.5rem;
+  --_typography---h4--h4-font-weight: var(--font-weight--xbold);
+  --_typography---h4--h4-line-height: 1.35; /* DM Sans — brand spec 135% */
+  --_typography---h4--h4-letter-spacing: 0px;
+
+  --_typography---h5--h5-font-size: 1.25rem;
+  --_typography---h5--h5-font-weight: var(--font-weight--xbold);
+  --_typography---h5--h5-line-height: 1.35; /* DM Sans — brand spec 135% */
+  --_typography---h5--h5-letter-spacing: 0px;
+
+  --_typography---h6--h6-font-size: 0.875rem;
+  --_typography---h6--h6-font-weight: var(--font-weight--xbold);
+  --_typography---h6--h6-line-height: 1.35; /* DM Sans — brand spec 135% */
+  --_typography---h6--h6-letter-spacing: 0px;
+
+  /* Body */
+  --_typography---body--body-font-size: 1.3rem;
+  --_typography---body--body-font-weight: var(--font-weight--normal);
+  --_typography---body--body-line-height: 1.35; /* DM Sans — brand spec 135% */
+  --_typography---body--body-letter-spacing: 0px;
+
+  /* Font size scale */
+  --_typography---font-size--tiny: 0.75rem;
+  --_typography---font-size--small: 0.875rem;
+  --_typography---font-size--regular: 1rem;
+  --_typography---font-size--medium: 1.15rem;
+  --_typography---font-size--large: 1.5rem;
+  --_typography---font-size--xlarge: 2.5rem;
+
+  /* Line heights */
+  --_typography---font-height--small: 1;
+  --_typography---font-height--medium: 1.1;
+  --_typography---font-height--large: 1.4;
+  --_typography---font-height--xlarge: 1.5;
+
+  /* Letter spacing */
+  --_typography---letter-spacing--tighter: -0.5px;
+  --_typography---letter-spacing--tight: -0.25px;
+  --_typography---letter-spacing--default: 0px;
+  --_typography---letter-spacing--wide: 0.25px;
+  --_typography---letter-spacing--wider: 0.5px;
+
+  /* ============================================================
+     LAYOUT — Spacing, Section Padding, Gaps, Grid (desktop base)
+     ============================================================ */
+
+  /* Spacing scale */
+  --_layout---spacing--none: 0rem;
+  --_layout---spacing--tiny: 0.125rem;
+  --_layout---spacing--xxsmall: 0.25rem;
+  --_layout---spacing--xsmall: 0.5rem;
+  --_layout---spacing--small: 1rem;
+  --_layout---spacing--medium: 2rem;
+  --_layout---spacing--large: 3rem;
+  --_layout---spacing--xlarge: 4rem;
+  --_layout---spacing--xxlarge: 5rem;
+  --_layout---spacing--huge: 6rem;
+  --_layout---spacing--xhuge: 8rem;
+  --_layout---spacing--xxhuge: 12rem;
+  --_layout---spacing--global-padding: 2rem;
+  --_layout---spacing--hero-top-padding: 14rem;
+
+  /* Section padding */
+  --_layout---section-padding--small: 2rem;
+  --_layout---section-padding--medium: 5rem;
+  --_layout---section-padding--large: 8rem;
+
+  /* Gaps */
+  --_layout---gaps--xxsmall: 0.25rem;
+  --_layout---gaps--xsmall: 0.5rem;
+  --_layout---gaps--small: 1rem;
+  --_layout---gaps--regular: 1.5rem;
+  --_layout---gaps--medium: 2rem;
+  --_layout---gaps--large: 3rem;
+  --_layout---gaps--xlarge: 4rem;
+
+  /* Grid */
+  --_layout---grid-columns--default-count: 8;
+  --_layout---grid-columns--xsmall: 15rem;
+  --_layout---grid-columns--small: 20rem;
+  --_layout---grid-columns--medium: 25rem;
+  --_layout---grid-columns--large: 30rem;
+  --_layout---grid-columns--xlarge: 35rem;
+  --_layout---grid-columns--xxlarge: 40rem;
+
+  /* ============================================================
+     SIZES — Max widths, containers, borders, radii
+     ============================================================ */
+
+  /* Max widths */
+  --_sizes---max-width--xxsmall: 12rem;
+  --_sizes---max-width--xsmall: 16rem;
+  --_sizes---max-width--small: 34rem;
+  --_sizes---max-width--medium: 40rem;
+  --_sizes---max-width--large: 52rem;
+  --_sizes---max-width--xlarge: 64rem;
+  --_sizes---max-width--xxlarge: 80rem;
+
+  /* Containers */
+  --_sizes---container--small: 48rem;
+  --_sizes---container--medium: 68rem;
+  --_sizes---container--large: 86rem;
+
+  /* Border widths */
+  --_sizes---border-width--thin: 1px;
+  --_sizes---border-width--normal: 0.125rem;
+  --_sizes---border-width--bold: 0.25rem;
+
+  /* Border radii */
+  --_sizes---border-radius--small: 0.25rem;
+  --_sizes---border-radius--medium: 0.6rem;
+  --_sizes---border-radius--large: 1rem;
+  --_sizes---border-radius--xlarge: 1.5rem;
+  --_sizes---border-radius--full: 9999px;
+
+  /* ============================================================
+     APPS — Shadcn-style semantic UI tokens
+     ============================================================ */
+  --_apps---colors--background: var(--neutral--white);
+  --_apps---colors--foreground: var(--neutral--black);
+  --_apps---colors--card: var(--neutral--white);
+  --_apps---colors--card-foreground: #060606;
+  --_apps---colors--popover: #f2f2f2;
+  --_apps---colors--popover-foreground: #060606;
+  --_apps---colors--primary: #a7bc00;
+  --_apps---colors--primary-foreground: #0d0e05;
+  --_apps---colors--secondary: #f1fcc7;
+  --_apps---colors--secondary-foreground: #0d0e07;
+  --_apps---colors--muted: #f8f8f8;
+  --_apps---colors--muted-foreground: #7d797a;
+  --_apps---colors--accent: #e4e4e4;
+  --_apps---colors--accent-foreground: #0d0d0d;
+  --_apps---colors--destructive: #d5455f;
+  --_apps---colors--border: var(--neutral--black);
+  --_apps---colors--input: var(--neutral--black);
+  --_apps---colors--ring: #e7fc7b;
+  --_apps---colors--dark-blue: #182a44;
+
+  /* Charts */
+  --_apps---charts--chart-1: #899c00;
+  --_apps---charts--chart-2: #a8b940;
+  --_apps---charts--chart-3: #7a8d00;
+  --_apps---charts--chart-4: #899b00;
+  --_apps---charts--chart-5: #6c7c00;
+
+  /* Sidebar */
+  --_apps---sidebar--sidebar: #f8f8f8;
+  --_apps---sidebar--sidebar-foreground: #060606;
+  --_apps---sidebar--sidebar-primary: #a7bc00;
+  --_apps---sidebar--sidebar-primary-foreground: #0d0e05;
+  --_apps---sidebar--sidebar-accent: #e4e4e4;
+  --_apps---sidebar--sidebar-accent-foreground: #0d0d0d;
+  --_apps---sidebar--sidebar-border: var(--neutral--black);
+  --_apps---sidebar--sidebar-ring: #e7fc7b;
+
+  /* Apps typography refs */
+  --_apps---typography--heading-font: var(--font-family--heading);
+  --_apps---typography--body-font: var(--font-family--body);
+  --_apps---typography--button-font: var(--font-family--body); /* DM Sans — mimics Peridot PE, SemiBold 600 */
+  --_apps---sizes--radius: var(--_sizes---border-radius--full);
+}
+
+/* ============================================================
+   RESPONSIVE — Tablet overrides
+   ============================================================ */
+@media (max-width: 991px) {
+  :root {
+    --_typography---h1--h1-font-size: 3.5rem;
+    --_typography---h2--h2-font-size: 2.5rem;
+    --_typography---h3--h3-font-size: 3rem;
+    --_typography---h4--h4-font-size: 1.5rem;
+    --_typography---h5--h5-font-size: 1.25rem;
+    --_typography---h6--h6-font-size: 0.875rem;
+    --_typography---body--body-font-size: 1.3rem;
+    --_typography---font-size--medium: 1rem;
+    --_typography---font-size--large: 1.5rem;
+
+    --_layout---spacing--medium: 1.5rem;
+    --_layout---spacing--large: 2.5rem;
+    --_layout---spacing--xlarge: 3rem;
+    --_layout---spacing--xxlarge: 4rem;
+    --_layout---spacing--huge: 5rem;
+    --_layout---spacing--xxhuge: 8rem;
+
+    --_layout---section-padding--small: 2rem;
+    --_layout---section-padding--medium: 4rem;
+    --_layout---section-padding--large: 5rem;
+    --_layout---spacing--hero-top-padding: 10rem;
+
+    --_layout---grid-columns--default-count: 8;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile Landscape overrides
+   ============================================================ */
+@media (max-width: 767px) {
+  :root {
+    --_typography---h1--h1-font-size: 2.5rem;
+    --_typography---h2--h2-font-size: 2rem;
+    --_typography---h3--h3-font-size: 2rem;
+    --_typography---h4--h4-font-size: 1.25rem;
+    --_typography---h5--h5-font-size: 1rem;
+    --_typography---h6--h6-font-size: 0.875rem;
+    --_typography---body--body-font-size: 1rem;
+    --_typography---font-size--medium: 1rem;
+    --_typography---font-size--large: 1.25rem;
+
+    --_layout---spacing--medium: 1.25rem;
+    --_layout---spacing--large: 1.5rem;
+    --_layout---spacing--xlarge: 2rem;
+    --_layout---spacing--xxlarge: 3rem;
+    --_layout---spacing--huge: 3.25rem;
+    --_layout---spacing--xxhuge: 4.5rem;
+
+    --_layout---section-padding--small: 1.5rem;
+    --_layout---section-padding--medium: 3rem;
+    --_layout---section-padding--large: 3rem;
+    --_layout---spacing--hero-top-padding: 8rem;
+    --_layout---spacing--global-padding: 2rem;
+
+    --_layout---grid-columns--default-count: 6;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile Portrait overrides
+   ============================================================ */
+@media (max-width: 479px) {
+  :root {
+    --_typography---h1--h1-font-size: 11vw;
+    --_typography---h2--h2-font-size: 10vw;
+    --_typography---h3--h3-font-size: 8vw;
+    --_typography---h4--h4-font-size: 6vw;
+    --_typography---h5--h5-font-size: 4vw;
+    --_typography---h6--h6-font-size: 3.5vw;
+    --_typography---body--body-font-size: 4vw;
+    --_typography---font-size--tiny: 3vw;
+    --_typography---font-size--small: 3.5vw;
+    --_typography---font-size--regular: 4vw;
+    --_typography---font-size--medium: 4vw;
+    --_typography---font-size--large: 5vw;
+    --_typography---font-size--xlarge: 6vw;
+
+    --_layout---spacing--global-padding: 1.5rem;
+    --_layout---spacing--hero-top-padding: 8rem;
+
+    --_layout---section-padding--small: 1.5rem;
+    --_layout---section-padding--medium: 5rem;
+    --_layout---section-padding--large: 3rem;
+
+    --_layout---grid-columns--default-count: 8;
+  }
+}
+
+/* ============================================================
+   BASE ELEMENT STYLES
+   Mirrors Teachable's global body/heading defaults
+   ============================================================ */
+body {
+  font-family: var(--font-family--body);
+  font-size: var(--_typography---body--body-font-size);
+  font-weight: var(--font-weight--normal);
+  line-height: var(--_typography---body--body-line-height); /* 1.35 — brand spec 135% */
+  color: var(--neutral--black);
+  background-color: var(--neutral--white);
+}
+
+h1 {
+  font-family: var(--font-family--heading);
+  font-size: var(--_typography---h1--h1-font-size);
+  font-weight: var(--_typography---h1--h1-font-weight);
+  line-height: var(--_typography---h1--h1-line-height);
+  letter-spacing: var(--_typography---h1--h1-letter-spacing);
+}
+
+h2 {
+  font-family: var(--font-family--heading);
+  font-size: var(--_typography---h2--h2-font-size);
+  font-weight: var(--_typography---h2--h2-font-weight);
+  line-height: var(--_typography---h2--h2-line-height);
+  letter-spacing: var(--_typography---h2--h2-letter-spacing);
+}
+
+h3 {
+  font-family: var(--font-family--heading);
+  font-size: var(--_typography---h3--h3-font-size);
+  font-weight: var(--_typography---h3--h3-font-weight);
+  line-height: var(--_typography---h3--h3-line-height);
+  letter-spacing: var(--_typography---h3--h3-letter-spacing);
+}
+
+h4 {
+  font-family: var(--font-family--body);
+  font-size: var(--_typography---h4--h4-font-size);
+  font-weight: var(--_typography---h4--h4-font-weight);
+  line-height: var(--_typography---h4--h4-line-height);
+  letter-spacing: var(--_typography---h4--h4-letter-spacing);
+}
+
+h5 {
+  font-family: var(--font-family--body);
+  font-size: var(--_typography---h5--h5-font-size);
+  font-weight: var(--_typography---h5--h5-font-weight);
+  line-height: var(--_typography---h5--h5-line-height);
+  letter-spacing: var(--_typography---h5--h5-letter-spacing);
+}
+
+h6 {
+  font-family: var(--font-family--body);
+  font-size: var(--_typography---h6--h6-font-size);
+  font-weight: var(--_typography---h6--h6-font-weight);
+  line-height: var(--_typography---h6--h6-line-height);
+  letter-spacing: var(--_typography---h6--h6-letter-spacing);
+}
+
+*:focus-visible {
+  outline: var(--focus--width) solid var(--_theme---system--focus-state);
+  outline-offset: var(--focus--offset);
+}
+
+::selection {
+  background-color: var(--_theme---system--selection-background);
+  color: var(--_theme---system--selection-text);
+}
