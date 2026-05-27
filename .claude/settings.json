@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "mcp__webflow__*"
+      "mcp__webflow__*",
+      "mcp__c503658f-11af-4d1a-afa9-fa3f19e763ab__*"
     ]
   }
 }

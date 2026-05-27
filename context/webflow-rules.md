@@ -85,6 +85,46 @@ When asked to create a new competitor page or landing page:
 
 ---
 
+## Session Workflow
+
+Follow this sequence at the start of every Webflow MCP session — in order, no skipping.
+
+### Step 0 — Call `webflow_guide_tool` first (mandatory)
+
+Before any other Webflow MCP tool, call `webflow_guide_tool`. This is non-negotiable — the tool's own description states this requirement twice. It returns current context about available tools, site structure, and session state. Skipping it risks acting on stale or incorrect assumptions.
+
+### Steps 1–7
+
+1. **Identify the site** — confirm you're working on `687904fb2b26c434698c47e9` (teachable.com). Use `data_sites_tool` if needed.
+2. **Locate the page** — find the target page via `data_pages_tool`. Never guess at a slug.
+3. **Understand the task type** — is this a copy edit, a component addition, a new page, a CMS update? The type determines which tools to use.
+4. **Check what's already there** — use `element_snapshot_tool` to inspect existing elements before changing anything. Never assume structure.
+5. **State the plan** — describe exactly what you'll do and wait for approval before touching anything.
+6. **Execute one step at a time** — one change, one tool call, then stop.
+7. **Verify** — after each change, call `element_snapshot_tool` to confirm the result before proceeding.
+
+### Designer MCP vs. Data API
+
+Two separate modes of working — know which tools require which:
+
+**Designer MCP** (requires the Webflow Designer tab open and in the foreground):
+- `element_tool` — read and manipulate DOM elements
+- `style_tool` — query and apply styles/classes
+- `de_component_tool` — work with component instances in the Designer
+- `element_snapshot_tool` — snapshot the current canvas state for verification
+- `component_builder` — build new component structures
+
+**Data API** (works headlessly — no Designer tab required):
+- `data_pages_tool` — list, create, and manage pages
+- `data_sites_tool` — site metadata and info
+- `data_assets_tool` — upload and manage assets
+- `data_cms_tool` — read and write CMS collections and items
+- `webflow_guide_tool` — always available
+
+If a task needs Designer MCP tools and the Designer isn't open, stop and tell the user to open it before proceeding.
+
+---
+
 ## Webflow MCP Behavior
 
 When using the Webflow MCP:
