@@ -2,6 +2,8 @@
 
 This is the Claude Code entry point for **Webflow MCP sessions**. For Figma Make sessions, see `FIGMA.md` instead.
 
+> **If a session brief wasn't provided:** Ask for one before proceeding. The brief should include the target page, task type, persona, and whether copy is ready. See `START-HERE.md` for the template. Don't start executing without it.
+
 **Load context on demand — don't read everything upfront:**
 - `context/webflow-rules.md` + `guidelines.md` — read at the start of every Webflow session
 - `context/framework-principles.md` — load when creating, modifying, or auditing any classes or elements
